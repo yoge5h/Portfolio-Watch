@@ -1,0 +1,18 @@
+<div class="container">
+    <mat-toolbar color="primary" class="mat-elevation-z6">        
+        <span class="clickable" routerLink = "">Portfolio Watch</span>
+        <span class="example-spacer"></span>
+            
+            <span *ngIf="isLoggedIn" class="user-name">Hi {{getUserName()}},</span>
+            <mat-icon *ngIf="isLoggedIn" [matMenuTriggerFor]="menu">keyboard_arrow_down</mat-icon>
+        
+            <mat-menu #menu="matMenu">
+                <a routerLink = "buy" mat-menu-item><mat-icon>add_shopping_cart</mat-icon>Buy</a>
+                <a routerLink = "sell" mat-menu-item><mat-icon>remove_shopping_cart</mat-icon>Sell</a>
+                <a routerLink = "change-password" mat-menu-item><mat-icon>swap_horiz</mat-icon>Change Password</a>
+                <a (click) = "onLogout()" mat-menu-item><mat-icon>power_settings_new</mat-icon>Logout</a>
+            </mat-menu>
+            
+    </mat-toolbar>    
+    <router-outlet></router-outlet>
+</div>

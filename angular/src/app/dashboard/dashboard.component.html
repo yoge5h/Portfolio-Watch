@@ -1,0 +1,18 @@
+<mat-progress-bar *ngIf = "isLoading" mode="indeterminate" color = "accent"></mat-progress-bar>
+<div class="current-page">
+  <h1>Portfolio</h1>
+</div>
+
+<div class="row">  
+  <div *ngIf="portfolio ? portfolio.length > 0 : false; else other_content">
+    <app-summary (refreshWasClicked) = "onRefreshClicked()" [summary] = "summary"></app-summary>
+    <app-company *ngFor="let company of portfolio" [company]="company"></app-company>
+  </div>
+
+  <ng-template #other_content>
+    <span style="padding: 20px 20px; font-size:22px" *ngIf="!isLoading">
+        Add shares to be shown in the dashboard.
+    </span>    
+  </ng-template>
+</div>
+

@@ -1,0 +1,39 @@
+<mat-progress-bar *ngIf = "isLoading" mode="indeterminate" color = "accent"></mat-progress-bar>
+<div class="current-page">
+    <h1>Sell Stock</h1>
+  </div>
+<div class="npsm-forms">
+    <form [formGroup]="sellForm" (ngSubmit)="onSubmit()">
+      <div class="row npsm-form-row">
+        <mat-form-field class="npsm-full-width">
+          <input matInput placeholder="Company" aria-label="Company" [matAutocomplete]="auto" formControlName = "company" required>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let c of filteredCompanies | async" [value]="c.id">
+              <span>{{ c.id }}</span>
+            </mat-option>
+          </mat-autocomplete>        
+          <mat-error *ngIf="sellForm.get('company').hasError('required') && sellForm.get('company').touched">Company is a required field.</mat-error>        
+        </mat-form-field>
+      </div>
+  
+      <div class="row npsm-form-row">
+        <mat-form-field class="npsm-full-width">
+          <input type = "number" matInput placeholder="Quantity" formControlName = "quantity" required>
+          <mat-error *ngIf="sellForm.get('quantity').hasError('required') && sellForm.get('quantity').touched">Share quantity is a required field.</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="row npsm-form-row">
+        <mat-form-field class="npsm-full-width">
+          <input type = "number" matInput placeholder="Price" formControlName = "price" required>
+          <mat-error *ngIf="sellForm.get('price').hasError('required') && sellForm.get('price').touched">Share price is a required field.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row npsm-form-row">
+        <div class="button-row">
+          <button type="reset" mat-raised-button color="primary" (click)="onSubmit()" [disabled] = "!sellForm.valid || isLoading">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

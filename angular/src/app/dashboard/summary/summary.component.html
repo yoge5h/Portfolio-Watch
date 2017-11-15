@@ -1,0 +1,38 @@
+<div class="col-xs-12 col-sm-4 padding-top">
+  <mat-card class="npsm-mat-card">
+    <div class="row" style="height:50px;">
+      <div class="col-xs-6" style = "margin-top:-10px; margin-left:-10px">
+        <span class="main-item">
+            {{summary.noOfShares}}
+        </span>
+      </div>
+      <div class="col-xs-6" style="text-align:right;">
+        <div class="row" style="font-size:20px; font-weight:bold;">          
+            Rs. {{summary.netIncome | number}}
+            <mat-icon *ngIf="summary ? summary.netIncome > 0 : false" style="color:lime">arrow_drop_up</mat-icon>
+            <mat-icon *ngIf="summary ? summary.netIncome < 0 : false" style="color:red">arrow_drop_down</mat-icon>          
+        </div>
+        <div class="row" style="font-size:12px;margin-right:15px">
+          Total returns
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding: 0px 0px 20px 10px;font-size:12px;">
+      Shares in {{summary.noOfCompanies}} companies.
+    </div>
+    <div class="row" style="font-size:20px; font-weight:bold;">
+      <div class="col-xs-6">Rs. {{summary.portfolioValue | number}}</div>
+      <div class="col-xs-6" style="margin-left:-25px;text-align:right;">Rs. {{summary.totalInvestment | number}}</div>
+    </div>
+    <div class="row" style="font-size:12px;">
+      <div class="col-xs-6">Portfolio value</div>
+      <div class="col-xs-6" style="margin-left:-25px;text-align:right;">Total investment</div>
+    </div>
+    <div class="row" style="font-size:12px;margin-top:10px;padding:10px 0px;">
+      <div class="col-xs-9">as of {{summary.time}}</div>
+      <div class="col-xs-3" style="margin-top:-5px">
+          <button (click)="onRefreshClicked()" style="border-radius: 25px;">Refresh</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

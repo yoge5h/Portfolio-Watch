@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.npsm-forms{
+    padding:15px;
+}
+
+.npsm-full-width {
+    width: 80%;
+  }
+
+.npsm-form-row{
+    margin-left: 0px;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.current-page{
+    padding-left: 20px;
+    background: #673ab7;        
+}
+
+.current-page h1{
+    color: hsla(0,0%,100%,.87);
+    font-weight: 300;
+    margin: 0;
+    padding: 12px 8px;
+    font-size: 20px;
+}
+
+body{
+    background-color: #ededed
+}
+
+.mat-elevation-z6 {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+mat-toolbar {
+    position: relative;
+    z-index: 10;
+}
+
+.npsm-mat-card{
+    background: #003a59;
+    color: #ffffff;
+    height: 195px;
+}
+
+.padding-top{
+    padding-top: 20px;
+}
+
+.main-item{
+    font-size: 50px;    
+}

@@ -1,0 +1,26 @@
+<mat-progress-bar *ngIf = "isLoading" mode="indeterminate" color = "accent"></mat-progress-bar>
+<div class="current-page">
+  <h1>Login</h1>
+</div>
+<div class="npsm-forms">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row npsm-form-row">
+          <mat-form-field class="npsm-full-width">
+            <input type = "text" matInput placeholder="Username" formControlName = "username" required>
+            <mat-error *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">Username is required.</mat-error>
+          </mat-form-field>
+        </div>
+    
+        <div class="row npsm-form-row">
+          <mat-form-field class="npsm-full-width">
+            <input type = "password" matInput placeholder="Password" formControlName = "password" required>
+            <mat-error *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">Password is required.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row npsm-form-row">
+          <div class="button-row">
+            <button type="reset" mat-raised-button color="primary" (click)="onSubmit()" [disabled] = "!loginForm.valid || isLoading">Submit</button>
+          </div>
+        </div>
+      </form>
+</div>
