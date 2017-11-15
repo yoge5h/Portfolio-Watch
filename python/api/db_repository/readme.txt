@@ -1,0 +1,1 @@
+python db_repository/manage.py version_control sqlite:///appDb.sqlite db_repository
