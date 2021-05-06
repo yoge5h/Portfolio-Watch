@@ -15,7 +15,7 @@ configobj==4.7.2
 docutils==0.11
 ecdsa==0.11
 Flask==0.12.2
-Flask-Cors==3.0.3
+Flask-Cors==3.0.9
 Flask-HTTPAuth==3.2.3
 Flask-SQLAlchemy==2.3.2
 futures==3.0.3
